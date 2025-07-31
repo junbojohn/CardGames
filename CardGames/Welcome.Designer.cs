@@ -1,0 +1,155 @@
+﻿namespace CardGames
+{
+    partial class welcome_screen
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            Welcome_msg = new Label();
+            Play_Black_Jack = new Button();
+            Play_FCD = new Button();
+            Play_GoFish = new Button();
+            Black_Jack_desc = new Label();
+            FCD_desc = new Label();
+            GoFish_desc = new Label();
+            Exit_btn = new Button();
+            SuspendLayout();
+            // 
+            // Welcome_msg
+            // 
+            Welcome_msg.AutoSize = true;
+            Welcome_msg.Font = new Font("Malgun Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            Welcome_msg.Location = new Point(218, 37);
+            Welcome_msg.Name = "Welcome_msg";
+            Welcome_msg.Size = new Size(599, 65);
+            Welcome_msg.TabIndex = 0;
+            Welcome_msg.Text = "Welcome to card games!";
+            // 
+            // Play_Black_Jack
+            // 
+            Play_Black_Jack.Font = new Font("Malgun Gothic", 12F);
+            Play_Black_Jack.Location = new Point(151, 191);
+            Play_Black_Jack.Name = "Play_Black_Jack";
+            Play_Black_Jack.Size = new Size(111, 46);
+            Play_Black_Jack.TabIndex = 1;
+            Play_Black_Jack.Text = "Black Jack";
+            Play_Black_Jack.UseVisualStyleBackColor = true;
+            Play_Black_Jack.Click += Play_Black_Jack_Click;
+            // 
+            // Play_FCD
+            // 
+            Play_FCD.Font = new Font("Malgun Gothic", 12F);
+            Play_FCD.Location = new Point(151, 267);
+            Play_FCD.Name = "Play_FCD";
+            Play_FCD.Size = new Size(111, 58);
+            Play_FCD.TabIndex = 2;
+            Play_FCD.Text = "Five Card Draw";
+            Play_FCD.UseVisualStyleBackColor = true;
+            Play_FCD.Click += Play_FCD_Click;
+            // 
+            // Play_GoFish
+            // 
+            Play_GoFish.Font = new Font("Malgun Gothic", 12F);
+            Play_GoFish.Location = new Point(151, 360);
+            Play_GoFish.Name = "Play_GoFish";
+            Play_GoFish.Size = new Size(111, 46);
+            Play_GoFish.TabIndex = 3;
+            Play_GoFish.Text = "Go Fish";
+            Play_GoFish.UseVisualStyleBackColor = true;
+            Play_GoFish.Click += Play_GoFish_Click;
+            // 
+            // Black_Jack_desc
+            // 
+            Black_Jack_desc.AutoSize = true;
+            Black_Jack_desc.Font = new Font("Malgun Gothic", 12F);
+            Black_Jack_desc.Location = new Point(292, 204);
+            Black_Jack_desc.Name = "Black_Jack_desc";
+            Black_Jack_desc.Size = new Size(314, 21);
+            Black_Jack_desc.TabIndex = 4;
+            Black_Jack_desc.Text = "Play a game of Black Jack against dealer.";
+            // 
+            // FCD_desc
+            // 
+            FCD_desc.AutoSize = true;
+            FCD_desc.Font = new Font("Malgun Gothic", 12F);
+            FCD_desc.Location = new Point(292, 286);
+            FCD_desc.Name = "FCD_desc";
+            FCD_desc.Size = new Size(353, 21);
+            FCD_desc.TabIndex = 5;
+            FCD_desc.Text = "Play a game of Five Card Draw against dealer.";
+            // 
+            // GoFish_desc
+            // 
+            GoFish_desc.AutoSize = true;
+            GoFish_desc.Font = new Font("Malgun Gothic", 12F);
+            GoFish_desc.Location = new Point(292, 373);
+            GoFish_desc.Name = "GoFish_desc";
+            GoFish_desc.Size = new Size(302, 21);
+            GoFish_desc.TabIndex = 6;
+            GoFish_desc.Text = "Play a game of Go Fish against 3 CPUs.";
+            // 
+            // Exit_btn
+            // 
+            Exit_btn.Font = new Font("Malgun Gothic", 12F);
+            Exit_btn.Location = new Point(12, 579);
+            Exit_btn.Name = "Exit_btn";
+            Exit_btn.Size = new Size(111, 46);
+            Exit_btn.TabIndex = 7;
+            Exit_btn.Text = "Exit";
+            Exit_btn.UseVisualStyleBackColor = true;
+            Exit_btn.Click += Exit_btn_Click;
+            // 
+            // welcome_screen
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1040, 637);
+            Controls.Add(Exit_btn);
+            Controls.Add(GoFish_desc);
+            Controls.Add(FCD_desc);
+            Controls.Add(Black_Jack_desc);
+            Controls.Add(Play_GoFish);
+            Controls.Add(Play_FCD);
+            Controls.Add(Play_Black_Jack);
+            Controls.Add(Welcome_msg);
+            Name = "welcome_screen";
+            Text = "Card games";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label Welcome_msg;
+        private Button Play_Black_Jack;
+        private Button Play_FCD;
+        private Button Play_GoFish;
+        private Label Black_Jack_desc;
+        private Label FCD_desc;
+        private Label GoFish_desc;
+        private Button Exit_btn;
+    }
+}
