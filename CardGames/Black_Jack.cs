@@ -41,6 +41,71 @@ namespace CardGames
         {
             InitializeComponent();
 
+            // these lines of codes will insert the image location of each cards in the deck
+
+            // Spades
+            cardimages[0, 0] = @"card images\spade A.png";
+            cardimages[0, 1] = @"card images\spade 2.png";
+            cardimages[0, 2] = @"card images\spade 3.png";
+            cardimages[0, 3] = @"card images\spade 4.png";
+            cardimages[0, 4] = @"card images\spade 5.png";
+            cardimages[0, 5] = @"card images\spade 6.png";
+            cardimages[0, 6] = @"card images\spade 7.png";
+            cardimages[0, 7] = @"card images\spade 8.png";
+            cardimages[0, 8] = @"card images\spade 9.png";
+            cardimages[0, 9] = @"card images\spade 10.png";
+            cardimages[0, 10] = @"card images\spade J.png";
+            cardimages[0, 11] = @"card images\spade Q.png";
+            cardimages[0, 12] = @"card images\spade K.png";
+
+            // Hearts
+            cardimages[1, 0] = @"card images\heart A.png";
+            cardimages[1, 1] = @"card images\heart 2.png";
+            cardimages[1, 2] = @"card images\heart 3.png";
+            cardimages[1, 3] = @"card images\heart 4.png";
+            cardimages[1, 4] = @"card images\heart 5.png";
+            cardimages[1, 5] = @"card images\heart 6.png";
+            cardimages[1, 6] = @"card images\heart 7.png";
+            cardimages[1, 7] = @"card images\heart 8.png";
+            cardimages[1, 8] = @"card images\heart 9.png";
+            cardimages[1, 9] = @"card images\heart 10.png";
+            cardimages[1, 10] = @"card images\heart J.png";
+            cardimages[1, 11] = @"card images\heart Q.png";
+            cardimages[1, 12] = @"card images\heart K.png";
+
+            // Clubs
+            cardimages[2, 0] = @"card images\club A.png";
+            cardimages[2, 1] = @"card images\club 2.png";
+            cardimages[2, 2] = @"card images\club 3.png";
+            cardimages[2, 3] = @"card images\club 4.png";
+            cardimages[2, 4] = @"card images\club 5.png";
+            cardimages[2, 5] = @"card images\club 6.png";
+            cardimages[2, 6] = @"card images\club 7.png";
+            cardimages[2, 7] = @"card images\club 8.png";
+            cardimages[2, 8] = @"card images\club 9.png";
+            cardimages[2, 9] = @"card images\club 10.png";
+            cardimages[2, 10] = @"card images\club J.png";
+            cardimages[2, 11] = @"card images\club Q.png";
+            cardimages[2, 12] = @"card images\club K.png";
+
+            // Diamonds
+            cardimages[3, 0] = @"card images\diamond A.png";
+            cardimages[3, 1] = @"card images\diamond 2.png";
+            cardimages[3, 2] = @"card images\diamond 3.png";
+            cardimages[3, 3] = @"card images\diamond 4.png";
+            cardimages[3, 4] = @"card images\diamond 5.png";
+            cardimages[3, 5] = @"card images\diamond 6.png";
+            cardimages[3, 6] = @"card images\diamond 7.png";
+            cardimages[3, 7] = @"card images\diamond 8.png";
+            cardimages[3, 8] = @"card images\diamond 9.png";
+            cardimages[3, 9] = @"card images\diamond 10.png";
+            cardimages[3, 10] = @"card images\diamond J.png";
+            cardimages[3, 11] = @"card images\diamond Q.png";
+            cardimages[3, 12] = @"card images\diamond K.png";
+
+            //string imagePath = @"C:\Path\To\Your\Image.jpg"; 
+            //pictureBox1.Image = Image.FromFile(imagePath);
+
             //PlayerCard1.Image = Image.FromFile(@"card images\spade A.png");
         }
 
@@ -71,70 +136,6 @@ namespace CardGames
                 playerHandValue = 0;
                 dealerHandValue = 0;
 
-                // these lines of codes will insert the image location of each cards in the deck
-
-                // Spades
-                cardimages[0,0] = @"card images\spade A.png";
-                cardimages[0,1] = @"card images\spade 2.png";
-                cardimages[0,2] = @"card images\spade 3.png";
-                cardimages[0,3] = @"card images\spade 4.png";
-                cardimages[0,4] = @"card images\spade 5.png";
-                cardimages[0,5] = @"card images\spade 6.png";
-                cardimages[0,6] = @"card images\spade 7.png";
-                cardimages[0,7] = @"card images\spade 8.png";
-                cardimages[0,8] = @"card images\spade 9.png";
-                cardimages[0,9] = @"card images\spade 10.png";
-                cardimages[0,10] = @"card images\spade J.png";
-                cardimages[0,11] = @"card images\spade Q.png";
-                cardimages[0,12] = @"card images\spade K.png";
-
-                // Hearts
-                cardimages[1,0] = @"card images\heart A.png";
-                cardimages[1,1] = @"card images\heart 2.png";
-                cardimages[1,2] = @"card images\heart 3.png";
-                cardimages[1,3] = @"card images\heart 4.png";
-                cardimages[1,4] = @"card images\heart 5.png";
-                cardimages[1,5] = @"card images\heart 6.png";
-                cardimages[1,6] = @"card images\heart 7.png";
-                cardimages[1,7] = @"card images\heart 8.png";
-                cardimages[1,8] = @"card images\heart 9.png";
-                cardimages[1,9] = @"card images\heart 10.png";
-                cardimages[1,10] = @"card images\heart J.png";
-                cardimages[1,11] = @"card images\heart Q.png";
-                cardimages[1,12] = @"card images\heart K.png";
-
-                // Clubs
-                cardimages[2,0] = @"card images\club A.png";
-                cardimages[2,1] = @"card images\club 2.png";
-                cardimages[2,2] = @"card images\club 3.png";
-                cardimages[2,3] = @"card images\club 4.png";
-                cardimages[2,4] = @"card images\club 5.png";
-                cardimages[2,5] = @"card images\club 6.png";
-                cardimages[2,6] = @"card images\club 7.png";
-                cardimages[2,7] = @"card images\club 8.png";
-                cardimages[2,8] = @"card images\club 9.png";
-                cardimages[2,9] = @"card images\club 10.png";
-                cardimages[2,10] = @"card images\club J.png";
-                cardimages[2,11] = @"card images\club Q.png";
-                cardimages[2,12] = @"card images\club K.png";
-
-                // Diamonds
-                cardimages[3,0] = @"card images\diamond A.png";
-                cardimages[3,1] = @"card images\diamond 2.png";
-                cardimages[3,2] = @"card images\diamond 3.png";
-                cardimages[3,3] = @"card images\diamond 4.png";
-                cardimages[3,4] = @"card images\diamond 5.png";
-                cardimages[3,5] = @"card images\diamond 6.png";
-                cardimages[3,6] = @"card images\diamond 7.png";
-                cardimages[3,7] = @"card images\diamond 8.png";
-                cardimages[3,8] = @"card images\diamond 9.png";
-                cardimages[3,9] = @"card images\diamond 10.png";
-                cardimages[3,10] = @"card images\diamond J.png";
-                cardimages[3,11] = @"card images\diamond Q.png";
-                cardimages[3,12] = @"card images\diamond K.png";
-
-                //string imagePath = @"C:\Path\To\Your\Image.jpg"; 
-                //pictureBox1.Image = Image.FromFile(imagePath);
 
 
                 // this for loop will reset all the hands of the player and the dealer
@@ -488,12 +489,11 @@ namespace CardGames
             while (dealerHandValue < 21)
             {
                 double hitChance = ((21.0 - dealerHandValue) / 21.0);
-                double stopChance = (dealerHandValue / 21.0);
 
                 // ERROR: something's wrong with probability calculation algorithm
 
-                // if the 'hitChance' is higher than 'stopChance', let the dealer hit again
-                if (hitChance >= stopChance)
+                // determine whether to hit or not based on 'hitChance' variable's probability
+                if (rand.NextDouble() < hitChance)
                 {
                     // Iterate through dealer's hand until it runs into empty slot.
                     for (int i = 0; i < dealerHand.Length; i++)
@@ -665,8 +665,8 @@ namespace CardGames
                     }
                 }
 
-                // if 'stopChance' has higher probability, then let dealer stop
-                else if (hitChance < stopChance)
+                // if 'hitChance' probability is missed out, stop hitting cards for dealer
+                else
                 {
                     // update the display of the sum of both player's and dealer's hand's value
                     Dealer_Hand.Text = "Dealer hand: " + dealerHandValue;
