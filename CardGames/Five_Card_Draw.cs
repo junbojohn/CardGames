@@ -118,6 +118,7 @@ namespace CardGames
             // if the game is currently not being played, start new game and reset the settings.
             if (!gameStart)
             {
+                gameStart = true;
 
                 // reset the hands of both player and dealer
                 for (int i = 0; i < 5; i++)
@@ -163,13 +164,13 @@ namespace CardGames
                 for (int i = 0; i < 5; i++)
                 {
                     //draw a card out of deck (52 cards in total)
-                    int playerDraw = rand.Next(1, 53);
+                    int playerDraw = rand.Next(0, 52);
 
                     //check if the drawn card is already drawn out before
                     //if yes, keep drawing until it draws a new one that hasn't been drawn before
                     while (cardDeckTrack[playerDraw].Item2 == false)
                     {
-                        playerDraw = rand.Next(1, 53);
+                        playerDraw = rand.Next(0, 52);
                     }
 
                     //give drawn card to player's hand
@@ -189,13 +190,13 @@ namespace CardGames
                     //do the same as above for the dealer
 
                     //draw a card out of deck (52 cards in total)
-                    int dealerDraw = rand.Next(1, 53);
+                    int dealerDraw = rand.Next(0, 52);
 
                     //check if the drawn card is already drawn out before
                     //if yes, keep drawing until it draws a new one that hasn't been drawn before
                     while (cardDeckTrack[dealerDraw].Item2 == false)
                     {
-                        dealerDraw = rand.Next(1, 53);
+                        dealerDraw = rand.Next(0, 52);
                     }
 
                     //give drawn card to dealer's hand
@@ -228,7 +229,7 @@ namespace CardGames
                 playerHandExchange[0] = false;
 
                 Main_btn.Text = "Keep";
-                
+
             }
 
             // if the game is currently being played, the button should either be 'trade' or 'keep'
@@ -239,22 +240,24 @@ namespace CardGames
                 //inside here, I can check if the cards are clicked (make card click function outside of course)
                 //and based on that, change the button text to 'change' so that card can be exchanged.
                 // change the button's function and its text based on whether if player is trying to change their card or not
-                for (int i = 0; i < playerHand.Length; i++)
-                {
-                    if (playerHandExchange[i])
-                    {
-                        Main_btn.Text = "Change";
-                    }
 
-                    else
-                    {
-                        Main_btn.Text = "Keep";
-                    }
+                if (playerHandExchange[0] || playerHandExchange[1] || playerHandExchange[2] || playerHandExchange[3] || playerHandExchange[4])
+                {
+                    Main_btn.Text = "Change";
                 }
+
+                //PAUSED
+                //Next time: implement card exchange part
+
+                else
+                {
+                    Main_btn.Text = "Keep";
+                }
+
             }
         }
 
-        // make player's card 1 clickable so it can be set to whether to keep it or exchange it
+        // make player's cards clickable so it can be set to whether to keep it or exchange it
         private void PlayerCard1_Click(object sender, EventArgs e)
         {
             // make the card only clickable while the game is being played
@@ -263,20 +266,150 @@ namespace CardGames
 
                 // if the card is back side, flip it to its front
                 // and set false to 'playerHandExchange[0]'
-                if (PlayerCard1.Image == Image.FromFile(@"card images\card back.png"))
+                if (playerHandExchange[0] == true)
                 {
                     PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
                     playerHandExchange[0] = false;
+
+                    // if all the cards are flipped front side, make the button text 'keep'
+                    if (!playerHandExchange[0] && !playerHandExchange[1] && !playerHandExchange[2] && !playerHandExchange[3] && !playerHandExchange[4])
+                    {
+                        Main_btn.Text = "Keep";
+                    }
                 }
 
                 // if the card is front side, flip it to its back
                 // and set true to 'playerHandExchange[0]'
-                else if (PlayerCard1.Image == Image.FromFile(playerHandImage[0])) 
+                else if (playerHandExchange[0] == false)
                 {
                     PlayerCard1.Image = Image.FromFile(@"card images\card back.png");
                     playerHandExchange[0] = true;
+                    Main_btn.Text = "Change";
+                }
+            }
+        }
+
+        private void PlayerCard2_Click(object sender, EventArgs e)
+        {
+            // make the card only clickable while the game is being played
+            if (gameStart)
+            {
+
+                // if the card is back side, flip it to its front
+                // and set false to 'playerHandExchange[0]'
+                if (playerHandExchange[1] == true)
+                {
+                    PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
+                    playerHandExchange[1] = false;
+
+                    // if all the cards are flipped front side, make the button text 'keep'
+                    if (!playerHandExchange[0] && !playerHandExchange[1] && !playerHandExchange[2] && !playerHandExchange[3] && !playerHandExchange[4])
+                    {
+                        Main_btn.Text = "Keep";
+                    }
                 }
 
+                // if the card is front side, flip it to its back
+                // and set true to 'playerHandExchange[0]'
+                else if (playerHandExchange[1] == false)
+                {
+                    PlayerCard2.Image = Image.FromFile(@"card images\card back.png");
+                    playerHandExchange[1] = true;
+                    Main_btn.Text = "Change";
+                }
+            }
+        }
+
+        private void PlayerCard3_Click(object sender, EventArgs e)
+        {
+            // make the card only clickable while the game is being played
+            if (gameStart)
+            {
+
+                // if the card is back side, flip it to its front
+                // and set false to 'playerHandExchange[0]'
+                if (playerHandExchange[2] == true)
+                {
+                    PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
+                    playerHandExchange[2] = false;
+
+                    // if all the cards are flipped front side, make the button text 'keep'
+                    if (!playerHandExchange[0] && !playerHandExchange[1] && !playerHandExchange[2] && !playerHandExchange[3] && !playerHandExchange[4])
+                    {
+                        Main_btn.Text = "Keep";
+                    }
+                }
+
+                // if the card is front side, flip it to its back
+                // and set true to 'playerHandExchange[0]'
+                else if (playerHandExchange[2] == false)
+                {
+                    PlayerCard3.Image = Image.FromFile(@"card images\card back.png");
+                    playerHandExchange[2] = true;
+                    Main_btn.Text = "Change";
+                }
+            }
+        }
+
+        private void PlayerCard4_Click(object sender, EventArgs e)
+        {
+            // make the card only clickable while the game is being played
+            if (gameStart)
+            {
+
+                // if the card is back side, flip it to its front
+                // and set false to 'playerHandExchange[0]'
+                if (playerHandExchange[3] == true)
+                {
+                    PlayerCard4.Image = Image.FromFile(playerHandImage[2]);
+                    playerHandExchange[3] = false;
+
+                    // if all the cards are flipped front side, make the button text 'keep'
+                    if (!playerHandExchange[0] && !playerHandExchange[1] && !playerHandExchange[2] && !playerHandExchange[3] && !playerHandExchange[4])
+                    {
+                        Main_btn.Text = "Keep";
+                    }
+                }
+
+                // if the card is front side, flip it to its back
+                // and set true to 'playerHandExchange[0]'
+                else if (playerHandExchange[3] == false)
+                {
+                    PlayerCard4.Image = Image.FromFile(@"card images\card back.png");
+                    playerHandExchange[3] = true;
+                    Main_btn.Text = "Change";
+                }
+            }
+        }
+
+        private void PlayerCard5_Click(object sender, EventArgs e)
+        {
+            // make the card only clickable while the game is being played
+            if (gameStart)
+            {
+
+                // if the card is back side, flip it to its front
+                // and set false to 'playerHandExchange[0]'
+                if (playerHandExchange[4] == true)
+                {
+                    PlayerCard5.Image = Image.FromFile(playerHandImage[2]);
+                    playerHandExchange[4] = false;
+
+                    // if all the cards are flipped front side, make the button text 'keep'
+                    if (!playerHandExchange[0] && !playerHandExchange[1] && !playerHandExchange[2] && !playerHandExchange[3] && !playerHandExchange[4])
+                    {
+                        Main_btn.Text = "Keep";
+                    }
+                }
+
+                // if the card is front side, flip it to its back
+                // and set true to 'playerHandExchange[0]'
+                else if (playerHandExchange[4] == false)
+                {
+                    PlayerCard5.Image = Image.FromFile(@"card images\card back.png");
+                    playerHandExchange[4] = true;
+                    Main_btn.Text = "Change";
+                }
             }
         }
     }

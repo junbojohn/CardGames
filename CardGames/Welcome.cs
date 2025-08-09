@@ -32,13 +32,5 @@ namespace CardGames
 
             this.Hide();
         }
-
-        private void Play_GoFish_Click(object sender, EventArgs e)
-        {
-            var GoFish = new Go_Fish();
-            GoFish.Show();
-
-            this.Hide();
-        }
     }
 }

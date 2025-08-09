@@ -72,6 +72,7 @@
             PlayerCard2.Size = new Size(117, 160);
             PlayerCard2.TabIndex = 5;
             PlayerCard2.TabStop = false;
+            PlayerCard2.Click += PlayerCard2_Click;
             // 
             // PlayerCard3
             // 
@@ -81,6 +82,7 @@
             PlayerCard3.Size = new Size(117, 160);
             PlayerCard3.TabIndex = 6;
             PlayerCard3.TabStop = false;
+            PlayerCard3.Click += PlayerCard3_Click;
             // 
             // PlayerCard4
             // 
@@ -90,6 +92,7 @@
             PlayerCard4.Size = new Size(117, 160);
             PlayerCard4.TabIndex = 7;
             PlayerCard4.TabStop = false;
+            PlayerCard4.Click += PlayerCard4_Click;
             // 
             // PlayerCard5
             // 
@@ -99,6 +102,7 @@
             PlayerCard5.Size = new Size(117, 160);
             PlayerCard5.TabIndex = 8;
             PlayerCard5.TabStop = false;
+            PlayerCard5.Click += PlayerCard5_Click;
             // 
             // DealerCard5
             // 
