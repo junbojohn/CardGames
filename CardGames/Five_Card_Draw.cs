@@ -16,18 +16,20 @@ namespace CardGames
         bool gameStart = false;
 
         // used to keep a track of player's hand
-        int[] playerHand = new int[5];
+        (int, int)[] playerHand = new (int, int)[5];
         String[] playerHandImage = new String[5];
         bool[] playerHandExchange = new bool[5];
 
         // used to keep a track of dealer's hand
-        int[] dealerHand = new int[5];
+        (int, int)[] dealerHand = new (int, int)[5];
         String[] dealerHandImage = new String[5];
         bool[] dealerHandExchange = new bool[5];
 
         // used to keep a track of card's value inside the deck and its availability during the game
-        int[,] cardDecks = new int[4, 13];
-        bool[,] cardDeckTrack = new bool[4, 13];
+        //int[,] cardDecks = new int[4, 13];
+        //bool[,] cardDeckTrack = new bool[4, 13];
+        (int, int)[] cardDecks = new (int, int)[52];
+        (int, bool)[] cardDeckTrack = new (int, bool)[52];
 
         // used to determine the value of the player and dealer's hand
         FCD_Value_Checker cardJudge = new FCD_Value_Checker();
@@ -120,21 +122,123 @@ namespace CardGames
                 // reset the hands of both player and dealer
                 for (int i = 0; i < 5; i++)
                 {
-                    playerHand[i] = 0;
-                    dealerHand[i] = 0;
+                    playerHand[i] = (0, 0);
+                    dealerHand[i] = (0, 0);
                 }
 
-                // reset the card deck
+
+                /* resets the card deck but NOT USED
                 for (int i = 0; i < 4; i++)
                 {
                     for (int j = 0; j < 13; j++)
                     {
-                        cardDecks[i, j] = (j + 1);
-                        cardDeckTrack[i, j] = true;
+                        //cardDecks[i, j] = (j + 1);
+                        //cardDeckTrack[i, j] = true;
+                        cardDecks[j] = (i, (j + 1));
+                    }
+                }
+                */
+
+                // reset the card deck
+                // card suit order: Ace, Heart, Club, Diamond
+                int cardSuit = 0;
+                int cardValue = 0;
+
+                for (int i = 0; i < 52; i++)
+                {
+                    cardDecks[i] = (cardSuit, cardValue);
+                    cardDeckTrack[i] = (cardSuit, true);
+
+                    cardValue = cardValue + 1;
+
+                    if (cardValue > 12)
+                    {
+                        cardValue = 0;
+                        cardSuit = cardSuit + 1;
                     }
                 }
 
 
+                //randomly distribute the cards to both player and the dealer
+                for (int i = 0; i < 5; i++)
+                {
+                    //draw a card out of deck (52 cards in total)
+                    int playerDraw = rand.Next(1, 53);
+
+                    //check if the drawn card is already drawn out before
+                    //if yes, keep drawing until it draws a new one that hasn't been drawn before
+                    while (cardDeckTrack[playerDraw].Item2 == false)
+                    {
+                        playerDraw = rand.Next(1, 53);
+                    }
+
+                    //give drawn card to player's hand
+                    playerHand[i] = cardDecks[playerDraw];
+
+                    //set the image of the drawn card that was given to the player
+                    playerHandImage[i] = cardimages[playerHand[i].Item1, playerHand[i].Item2];
+
+                    //set the value as false of whether if the player will exchange this hand for now
+                    playerHandExchange[i] = false;
+
+                    //set false to the position of the drawn card so that card doesn't re-appear when drawing again
+                    cardDeckTrack[i] = (playerDraw, false);
+
+
+
+                    //do the same as above for the dealer
+
+                    //draw a card out of deck (52 cards in total)
+                    int dealerDraw = rand.Next(1, 53);
+
+                    //check if the drawn card is already drawn out before
+                    //if yes, keep drawing until it draws a new one that hasn't been drawn before
+                    while (cardDeckTrack[dealerDraw].Item2 == false)
+                    {
+                        dealerDraw = rand.Next(1, 53);
+                    }
+
+                    //give drawn card to dealer's hand
+                    dealerHand[i] = cardDecks[dealerDraw];
+
+                    //set the image of the drawn card that was given to the dealer
+                    dealerHandImage[i] = cardimages[dealerHand[i].Item1, dealerHand[i].Item2];
+
+                    //set the value as false of whether if the dealer will exchange this hand for now
+                    dealerHandExchange[i] = false;
+
+                    //set false to the position of the drawn card so that card doesn't re-appear when drawing again
+                    cardDeckTrack[i] = (dealerDraw, false);
+                }
+
+                //flip the player's hands to front so they can see it
+                PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
+                playerHandExchange[0] = false;
+
+                PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
+                playerHandExchange[0] = false;
+
+                PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
+                playerHandExchange[0] = false;
+
+                PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
+                playerHandExchange[0] = false;
+
+                PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
+                playerHandExchange[0] = false;
+
+                Main_btn.Text = "Keep";
+                
+            }
+
+            // if the game is currently being played, the button should either be 'trade' or 'keep'
+            // depends on whether if the player wants to trade some of their cards or not.
+            else if (gameStart)
+            {
+
+                //inside here, I can check if the cards are clicked (make card click function outside of course)
+                //and based on that, change the button text to 'change' so that card can be exchanged.
+                // change the button's function and its text based on whether if player is trying to change their card or not
                 for (int i = 0; i < playerHand.Length; i++)
                 {
                     if (playerHandExchange[i])
@@ -147,17 +251,6 @@ namespace CardGames
                         Main_btn.Text = "Keep";
                     }
                 }
-                
-            }
-
-            // if the game is currently being played, the button should either be 'trade' or 'keep'
-            // depends on whether if the player wants to trade some of their cards or not.
-            else if (gameStart)
-            {
-
-                //inside here, I can check if the cards are clicked (make card click function outside of course)
-                //and based on that, change the button text to 'change' so that card can be exchanged.
-
             }
         }
 
@@ -169,15 +262,19 @@ namespace CardGames
             {
 
                 // if the card is back side, flip it to its front
+                // and set false to 'playerHandExchange[0]'
                 if (PlayerCard1.Image == Image.FromFile(@"card images\card back.png"))
                 {
                     PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
+                    playerHandExchange[0] = false;
                 }
 
                 // if the card is front side, flip it to its back
+                // and set true to 'playerHandExchange[0]'
                 else if (PlayerCard1.Image == Image.FromFile(playerHandImage[0])) 
                 {
                     PlayerCard1.Image = Image.FromFile(@"card images\card back.png");
+                    playerHandExchange[0] = true;
                 }
 
             }
