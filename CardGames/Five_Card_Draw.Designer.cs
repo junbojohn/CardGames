@@ -42,6 +42,8 @@
             Main_btn = new Button();
             Exit_btn = new Button();
             game_msg = new Label();
+            playerResult = new Label();
+            dealerResult = new Label();
             ((System.ComponentModel.ISupportInitialize)PlayerCard1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PlayerCard2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PlayerCard3).BeginInit();
@@ -179,12 +181,35 @@
             game_msg.Size = new Size(150, 28);
             game_msg.TabIndex = 16;
             game_msg.Text = "Five Card Draw";
+            game_msg.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // playerResult
+            // 
+            playerResult.AutoSize = true;
+            playerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            playerResult.Location = new Point(496, 291);
+            playerResult.Name = "playerResult";
+            playerResult.Size = new Size(0, 28);
+            playerResult.TabIndex = 17;
+            playerResult.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // dealerResult
+            // 
+            dealerResult.AutoSize = true;
+            dealerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            dealerResult.Location = new Point(496, 207);
+            dealerResult.Name = "dealerResult";
+            dealerResult.Size = new Size(0, 28);
+            dealerResult.TabIndex = 18;
+            dealerResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Five_Card_Draw
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1160, 608);
+            Controls.Add(dealerResult);
+            Controls.Add(playerResult);
             Controls.Add(game_msg);
             Controls.Add(Exit_btn);
             Controls.Add(Main_btn);
@@ -229,5 +254,7 @@
         private Button Main_btn;
         private Button Exit_btn;
         private Label game_msg;
+        private Label playerResult;
+        private Label dealerResult;
     }
 }

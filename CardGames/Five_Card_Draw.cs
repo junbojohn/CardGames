@@ -232,28 +232,279 @@ namespace CardGames
 
             }
 
-            // if the game is currently being played, the button should either be 'trade' or 'keep'
+            // if the game is currently being played, the button should either be 'Change' or 'Keep'
             // depends on whether if the player wants to trade some of their cards or not.
             else if (gameStart)
             {
 
-                //inside here, I can check if the cards are clicked (make card click function outside of course)
-                //and based on that, change the button text to 'change' so that card can be exchanged.
-                // change the button's function and its text based on whether if player is trying to change their card or not
-
+                // check if there are cards to be exchanged. If yes, do so.
                 if (playerHandExchange[0] || playerHandExchange[1] || playerHandExchange[2] || playerHandExchange[3] || playerHandExchange[4])
                 {
-                    Main_btn.Text = "Change";
+                    //iterate through the player's hand
+                    for (int i = 0; i < playerHand.Length; i++)
+                    {
+                        //if there's a card to be exchanged, put that card back into the deck and randomly draw new one
+                        if (playerHandExchange[i])
+                        {
+                            // the following portion of the codes (3 variables and bunch of else ifs)
+                            // are used to grab a correct index of the 'cardDeckTrack' variable
+                            int playerHandSuit = playerHand[i].Item1;
+                            int playerHandValue = playerHand[i].Item2;
+                            int deckIndex = 0;
+
+                            if (playerHandSuit == 0)
+                            {
+                                deckIndex = playerHandValue + 0;
+                            }
+
+                            else if (playerHandSuit == 1)
+                            {
+                                deckIndex = playerHandValue + 13;
+                            }
+
+                            else if (playerHandSuit == 2)
+                            {
+                                deckIndex = playerHandValue + 26;
+                            }
+
+                            else if (playerHandSuit == 3)
+                            {
+                                deckIndex = playerHandValue + 39;
+                            }
+
+                            // the card that was meant to be exchanged has gone inside the deck
+                            cardDeckTrack[deckIndex].Item2 = true;
+
+                            // Now, randomly re-draw the card to replace the exchanged card
+                            int playerReDraw = rand.Next(0, 52);
+
+                            // check if the drawn card is already drawn out before
+                            // if yes, keep drawing until it draws a new one that hasn't been drawn before
+                            while (cardDeckTrack[playerReDraw].Item2 == false)
+                            {
+                                playerReDraw = rand.Next(0, 52);
+                            }
+
+                            // give newly drawn card to player's hand
+                            playerHand[i] = cardDecks[playerReDraw];
+
+                            // set the image of the newly drawn card that was given to the player
+                            playerHandImage[i] = cardimages[playerHand[i].Item1, playerHand[i].Item2];
+                            
+                            // set the value as false for this position of the player's hand
+                            playerHandExchange[i] = false;
+
+                            //set false to the position of the newly drawn card so that card doesn't re-appear later
+                            cardDeckTrack[i] = (playerReDraw, false);
+                        }
+                    }
                 }
 
-                //PAUSED
-                //Next time: implement card exchange part
+                PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
+                PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
+                PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
+                PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
+                PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
 
+
+                // iterate through player's hand to re-organize the cards based on their values
+                for (int i = 0; i < playerHand.Length; i++)
+                {
+                    for (int j = i; j < playerHand.Length; j++)
+                    {
+                        // if the player's card that's at the front position has lower value than
+                        // the card at the back position, switch them.
+                        if (playerHand[i].Item2 < playerHand[j].Item2)
+                        {
+                            int hold1 = playerHand[i].Item1;
+                            int hold2 = playerHand[i].Item2;
+                            String holdImage = playerHandImage[i];
+
+                            playerHand[i].Item1 = playerHand[j].Item1;
+                            playerHand[i].Item2 = playerHand[j].Item2;
+                            playerHandImage[i] = playerHandImage[j];
+                            playerHand[j].Item1 = hold1;
+                            playerHand[j].Item2 = hold2;
+                            playerHandImage[j] = holdImage;
+                        }
+
+                        // if the player's card that's at the front position has same value as
+                        // the card at the back position, compare their suits.
+                        else if (playerHand[i].Item2 == playerHand[j].Item2)
+                        {
+                            if (playerHand[i].Item1 < playerHand[j].Item1)
+                            {
+                                int hold1 = playerHand[i].Item1;
+                                int hold2 = playerHand[i].Item2;
+                                String holdImage = playerHandImage[i];
+
+                                playerHand[i].Item1 = playerHand[j].Item1;
+                                playerHand[i].Item2 = playerHand[j].Item2;
+                                playerHandImage[i] = playerHandImage[j];
+                                playerHand[j].Item1 = hold1;
+                                playerHand[j].Item2 = hold2;
+                                playerHandImage[j] = holdImage;
+                            }
+                        }
+                    }
+                }
+
+                PlayerCard1.Image = Image.FromFile(dealerHandImage[0]);
+                PlayerCard2.Image = Image.FromFile(dealerHandImage[1]);
+                PlayerCard3.Image = Image.FromFile(dealerHandImage[2]);
+                PlayerCard4.Image = Image.FromFile(dealerHandImage[3]);
+                PlayerCard5.Image = Image.FromFile(dealerHandImage[4]);
+
+                DealerCard1.Image = Image.FromFile(dealerHandImage[0]);
+                DealerCard2.Image = Image.FromFile(dealerHandImage[1]);
+                DealerCard3.Image = Image.FromFile(dealerHandImage[2]);
+                DealerCard4.Image = Image.FromFile(dealerHandImage[3]);
+                DealerCard5.Image = Image.FromFile(dealerHandImage[4]);
+
+                // Now, determine the value of player/dealer's hand
+                int playerValue = cardJudge.judgeValue(playerHand);
+                int dealerValue = cardJudge.judgeValue(dealerHand);
+
+
+
+                //player hand message
+
+                //royal flush
+                if (playerValue == 10)
+                {
+                    playerResult.Text = "Royal Flush";
+                }
+
+                //straight flush
+                else if (playerValue == 9)
+                {
+                    playerResult.Text = "Straight Flush";
+                }
+
+                //four of a kind
+                else if (playerValue == 8)
+                {
+                    playerResult.Text = "Four of a kind";
+                }
+
+                //full house
+                else if (playerValue == 7)
+                {
+                    playerResult.Text = "Full House";
+                }
+
+                //flush
+                else if (playerValue == 6)
+                {
+                    playerResult.Text = "Flush";
+                }
+
+                //straight
+                else if (playerValue == 5)
+                {
+                    playerResult.Text = "Straight";
+                }
+
+                //three of a kind
+                else if (playerValue == 4)
+                {
+                    playerResult.Text = "Three of a kind";
+                }
+
+                //two pair
+                else if (playerValue == 3)
+                {
+                    playerResult.Text = "Two Pair";
+                }
+
+                //one pair
+                else if (playerValue == 2)
+                {
+                    playerResult.Text = "One Pair";
+                }
+
+                //no pair
+                else if (playerValue == 1)
+                {
+                    playerResult.Text = "No Pair";
+                }
+
+
+
+                //dealer hand message
+
+                //straight flush
+                else if (dealerValue == 9)
+                {
+                    dealerResult.Text = "Straight Flush";
+                }
+
+                //four of a kind
+                else if (dealerValue == 8)
+                {
+                    dealerResult.Text = "Four of a kind";
+                }
+
+                //full house
+                else if (dealerValue == 7)
+                {
+                    dealerResult.Text = "Full House";
+                }
+
+                //flush
+                else if (dealerValue == 6)
+                {
+                    dealerResult.Text = "Flush";
+                }
+
+                //straight
+                else if (dealerValue == 5)
+                {
+                    dealerResult.Text = "Straight";
+                }
+
+                //three of a kind
+                else if (dealerValue == 4)
+                {
+                    dealerResult.Text = "Three of a kind";
+                }
+
+                //two pair
+                else if (dealerValue == 3)
+                {
+                    dealerResult.Text = "Two Pair";
+                }
+
+                //one pair
+                else if (dealerValue == 2)
+                {
+                    dealerResult.Text = "One Pair";
+                }
+
+                //no pair
+                else if (dealerValue == 1)
+                {
+                    dealerResult.Text = "No Pair";
+                }
+
+
+                // if player has higher value, player wins
+                if (playerValue > dealerValue)
+                {
+                    game_msg.Text = "Player Wins!";
+                }
+
+                // if dealer has higher value, player loses
+                else if (playerValue < dealerValue)
+                {
+                    game_msg.Text = "Player Loses";
+                }
+
+                // if both player and dealer have same value, it's a draw
                 else
                 {
-                    Main_btn.Text = "Keep";
+                    game_msg.Text = "Draw";
                 }
-
             }
         }
 
