@@ -228,6 +228,16 @@ namespace CardGames
                 PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
                 playerHandExchange[0] = false;
 
+                DealerCard1.Image = Image.FromFile(@"card images\card back.png");
+                DealerCard2.Image = Image.FromFile(@"card images\card back.png");
+                DealerCard3.Image = Image.FromFile(@"card images\card back.png");
+                DealerCard4.Image = Image.FromFile(@"card images\card back.png");
+                DealerCard5.Image = Image.FromFile(@"card images\card back.png");
+
+                game_msg.Text = "";
+                playerResult.Text = "";
+                dealerResult.Text = "";
+
                 Main_btn.Text = "Keep";
 
             }
@@ -510,6 +520,8 @@ namespace CardGames
                     game_msg.Text = "Draw";
                 }
 
+                gameStart = false;
+                Main_btn.Text = "Play";
 
                 //comment end
             }
