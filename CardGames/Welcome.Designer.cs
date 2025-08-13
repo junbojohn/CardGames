@@ -34,6 +34,8 @@
             Black_Jack_desc = new Label();
             FCD_desc = new Label();
             Exit_btn = new Button();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // Welcome_msg
@@ -99,11 +101,33 @@
             Exit_btn.UseVisualStyleBackColor = true;
             Exit_btn.Click += Exit_btn_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Malgun Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label1.Location = new Point(777, 556);
+            label1.Name = "label1";
+            label1.Size = new Size(251, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Developed by: Junbo Park";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Malgun Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label2.Location = new Point(947, 600);
+            label2.Name = "label2";
+            label2.Size = new Size(81, 25);
+            label2.TabIndex = 9;
+            label2.Text = "Ver. 1.0";
+            // 
             // welcome_screen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1040, 637);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(Exit_btn);
             Controls.Add(FCD_desc);
             Controls.Add(Black_Jack_desc);
@@ -124,5 +148,7 @@
         private Label Black_Jack_desc;
         private Label FCD_desc;
         private Button Exit_btn;
+        private Label label1;
+        private Label label2;
     }
 }

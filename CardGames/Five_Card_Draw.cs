@@ -205,8 +205,9 @@ namespace CardGames
                     //set the image of the drawn card that was given to the dealer
                     dealerHandImage[i] = cardimages[dealerHand[i].Item1, dealerHand[i].Item2];
 
-                    //set the value as false of whether if the dealer will exchange this hand for now
-                    dealerHandExchange[i] = false;
+                    //set the value as true of whether if the dealer will exchange this hand for now
+                    //this will be used later
+                    dealerHandExchange[i] = true;
 
                     //set false to the position of the drawn card so that card doesn't re-appear when drawing again
                     cardDeckTrack[i] = (dealerDraw, false);
@@ -310,14 +311,6 @@ namespace CardGames
                     }
                 }
 
-                /* probably pointless to change the card display since it'll do it below
-                PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
-                PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
-                PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
-                PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
-                PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
-                */
-
                 // iterate through player's hand to re-organize the cards based on their values
                 for (int i = 0; i < playerHand.Length; i++)
                 {
@@ -361,6 +354,129 @@ namespace CardGames
                 }
 
 
+
+
+                // AI for dealer to change card based on what they're holding
+                for (int i = 0; i < dealerHand.Length; i++)
+                {
+                    for (int j = (i+1); j < dealerHand.Length; j++)
+                    {
+                        if (dealerHand[i].Item2 == dealerHand[j].Item2)
+                        {
+                            dealerHandExchange[i] = false;
+                            dealerHandExchange[j] = false;
+                        }
+                    }
+                }
+
+                // check if there are cards to be exchanged for dealer.
+                if (dealerHandExchange[0] || dealerHandExchange[1] || dealerHandExchange[2] || dealerHandExchange[3] || dealerHandExchange[4])
+                {
+                    //iterate through the dealer's hand
+                    for (int i = 0; i < dealerHand.Length; i++)
+                    {
+                        //if there's a card to be exchanged, put that card back into the deck and randomly draw new one
+                        if (dealerHandExchange[i])
+                        {
+                            // the following portion of the codes (3 variables and bunch of else ifs)
+                            // are used to grab a correct index of the 'cardDeckTrack' variable
+                            int dealerHandSuit = dealerHand[i].Item1;
+                            int dealerHandValue = dealerHand[i].Item2;
+                            int deckIndex = 0;
+
+                            if (dealerHandSuit == 0)
+                            {
+                                deckIndex = dealerHandValue + 0;
+                            }
+
+                            else if (dealerHandSuit == 1)
+                            {
+                                deckIndex = dealerHandValue + 13;
+                            }
+
+                            else if (dealerHandSuit == 2)
+                            {
+                                deckIndex = dealerHandValue + 26;
+                            }
+
+                            else if (dealerHandSuit == 3)
+                            {
+                                deckIndex = dealerHandValue + 39;
+                            }
+
+                            // the card that was meant to be exchanged has gone inside the deck
+                            cardDeckTrack[deckIndex].Item2 = true;
+
+                            // Now, randomly re-draw the card to replace the exchanged card
+                            int dealerReDraw = rand.Next(0, 52);
+
+                            // check if the drawn card is already drawn out before
+                            // if yes, keep drawing until it draws a new one that hasn't been drawn before
+                            while (cardDeckTrack[dealerReDraw].Item2 == false)
+                            {
+                                dealerReDraw = rand.Next(0, 52);
+                            }
+
+                            // give newly drawn card to dealer's hand
+                            dealerHand[i] = cardDecks[dealerReDraw];
+
+                            // set the image of the newly drawn card that was given to the dealer
+                            dealerHandImage[i] = cardimages[dealerHand[i].Item1, dealerHand[i].Item2];
+
+                            // set the value as false for this position of the dealer's hand
+                            dealerHandExchange[i] = false;
+
+                            //set false to the position of the newly drawn card so that card doesn't re-appear later
+                            cardDeckTrack[i] = (dealerReDraw, false);
+                        }
+                    }
+                }
+
+                // iterate through dealer's hand to re-organize the cards based on their values
+                for (int i = 0; i < dealerHand.Length; i++)
+                {
+                    for (int j = i; j < dealerHand.Length; j++)
+                    {
+                        // if the dealer's card that's at the front position has lower value than
+                        // the card at the back position, switch them.
+                        if (dealerHand[i].Item2 < dealerHand[j].Item2)
+                        {
+                            int hold1 = dealerHand[i].Item1;
+                            int hold2 = dealerHand[i].Item2;
+                            String holdImage = dealerHandImage[i];
+
+                            dealerHand[i].Item1 = dealerHand[j].Item1;
+                            dealerHand[i].Item2 = dealerHand[j].Item2;
+                            dealerHandImage[i] = dealerHandImage[j];
+                            dealerHand[j].Item1 = hold1;
+                            dealerHand[j].Item2 = hold2;
+                            dealerHandImage[j] = holdImage;
+                        }
+
+                        // if the dealer's card that's at the front position has same value as
+                        // the card at the back position, compare their suits.
+                        else if (dealerHand[i].Item2 == dealerHand[j].Item2)
+                        {
+                            if (dealerHand[i].Item1 < dealerHand[j].Item1)
+                            {
+                                int hold1 = dealerHand[i].Item1;
+                                int hold2 = dealerHand[i].Item2;
+                                String holdImage = dealerHandImage[i];
+
+                                dealerHand[i].Item1 = dealerHand[j].Item1;
+                                dealerHand[i].Item2 = dealerHand[j].Item2;
+                                dealerHandImage[i] = dealerHandImage[j];
+                                dealerHand[j].Item1 = hold1;
+                                dealerHand[j].Item2 = hold2;
+                                dealerHandImage[j] = holdImage;
+                            }
+                        }
+                    }
+                }
+
+
+
+
                 PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
                 PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
                 PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
@@ -373,7 +489,7 @@ namespace CardGames
                 DealerCard4.Image = Image.FromFile(dealerHandImage[3]);
                 DealerCard5.Image = Image.FromFile(dealerHandImage[4]);
 
-                //THIS PART SEEMS TO CAUSE SOME ISSUE WHERE THE CARDS THAT ARE MEANT TO BE KEPT CHANGES
+                
 
                 // Now, determine the value of player/dealer's hand
                 int playerValue = cardJudge.judgeValue(playerHand);
