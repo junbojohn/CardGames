@@ -2,6 +2,11 @@ namespace CardGames
 {
     public partial class welcome_screen : Form
     {
+        /*
+        Developed by: Junbo Park
+        Started developing in: Around late July 2025
+        Finished version 1.0 development: Around mid-August 2025
+        */
         public welcome_screen()
         {
             InitializeComponent();
