@@ -179,7 +179,7 @@ namespace CardGames
                     //set the image of the drawn card that was given to the player
                     playerHandImage[i] = cardimages[playerHand[i].Item1, playerHand[i].Item2];
 
-                    //set the value as false of whether if the player will exchange this hand for now
+                    //set the value as false for whether if the player will exchange this hand
                     playerHandExchange[i] = false;
 
                     //set false to the position of the drawn card so that card doesn't re-appear when drawing again
@@ -290,7 +290,7 @@ namespace CardGames
 
                             // set the image of the newly drawn card that was given to the player
                             playerHandImage[i] = cardimages[playerHand[i].Item1, playerHand[i].Item2];
-                            
+
                             // set the value as false for this position of the player's hand
                             playerHandExchange[i] = false;
 
@@ -300,12 +300,13 @@ namespace CardGames
                     }
                 }
 
+                /* probably pointless to change the card display since it'll do it below
                 PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
                 PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
                 PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
                 PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
                 PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
-
+                */
 
                 // iterate through player's hand to re-organize the cards based on their values
                 for (int i = 0; i < playerHand.Length; i++)
@@ -349,17 +350,20 @@ namespace CardGames
                     }
                 }
 
-                PlayerCard1.Image = Image.FromFile(dealerHandImage[0]);
-                PlayerCard2.Image = Image.FromFile(dealerHandImage[1]);
-                PlayerCard3.Image = Image.FromFile(dealerHandImage[2]);
-                PlayerCard4.Image = Image.FromFile(dealerHandImage[3]);
-                PlayerCard5.Image = Image.FromFile(dealerHandImage[4]);
+
+                PlayerCard1.Image = Image.FromFile(playerHandImage[0]);
+                PlayerCard2.Image = Image.FromFile(playerHandImage[1]);
+                PlayerCard3.Image = Image.FromFile(playerHandImage[2]);
+                PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
+                PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
 
                 DealerCard1.Image = Image.FromFile(dealerHandImage[0]);
                 DealerCard2.Image = Image.FromFile(dealerHandImage[1]);
                 DealerCard3.Image = Image.FromFile(dealerHandImage[2]);
                 DealerCard4.Image = Image.FromFile(dealerHandImage[3]);
                 DealerCard5.Image = Image.FromFile(dealerHandImage[4]);
+
+                //THIS PART SEEMS TO CAUSE SOME ISSUE WHERE THE CARDS THAT ARE MEANT TO BE KEPT CHANGES
 
                 // Now, determine the value of player/dealer's hand
                 int playerValue = cardJudge.judgeValue(playerHand);
@@ -434,7 +438,7 @@ namespace CardGames
                 //dealer hand message
 
                 //straight flush
-                else if (dealerValue == 9)
+                if (dealerValue == 9)
                 {
                     dealerResult.Text = "Straight Flush";
                 }
@@ -505,6 +509,9 @@ namespace CardGames
                 {
                     game_msg.Text = "Draw";
                 }
+
+
+                //comment end
             }
         }
 
@@ -612,7 +619,7 @@ namespace CardGames
                 // and set false to 'playerHandExchange[0]'
                 if (playerHandExchange[3] == true)
                 {
-                    PlayerCard4.Image = Image.FromFile(playerHandImage[2]);
+                    PlayerCard4.Image = Image.FromFile(playerHandImage[3]);
                     playerHandExchange[3] = false;
 
                     // if all the cards are flipped front side, make the button text 'keep'
@@ -643,7 +650,7 @@ namespace CardGames
                 // and set false to 'playerHandExchange[0]'
                 if (playerHandExchange[4] == true)
                 {
-                    PlayerCard5.Image = Image.FromFile(playerHandImage[2]);
+                    PlayerCard5.Image = Image.FromFile(playerHandImage[4]);
                     playerHandExchange[4] = false;
 
                     // if all the cards are flipped front side, make the button text 'keep'
@@ -662,6 +669,16 @@ namespace CardGames
                     Main_btn.Text = "Change";
                 }
             }
+        }
+
+        private void Exit_btn_Click(object sender, EventArgs e)
+        {
+            gameStart = false;
+
+            var welcome = new welcome_screen();
+            welcome.Show();
+
+            this.Hide();
         }
     }
 }

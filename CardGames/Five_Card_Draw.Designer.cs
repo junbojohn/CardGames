@@ -171,37 +171,38 @@
             Exit_btn.TabIndex = 15;
             Exit_btn.Text = "Exit";
             Exit_btn.UseVisualStyleBackColor = true;
+            Exit_btn.Click += Exit_btn_Click;
             // 
             // game_msg
             // 
             game_msg.AutoSize = true;
             game_msg.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            game_msg.ImageAlign = ContentAlignment.TopLeft;
             game_msg.Location = new Point(483, 246);
             game_msg.Name = "game_msg";
             game_msg.Size = new Size(150, 28);
             game_msg.TabIndex = 16;
             game_msg.Text = "Five Card Draw";
-            game_msg.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // playerResult
             // 
             playerResult.AutoSize = true;
             playerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            playerResult.Location = new Point(496, 291);
+            playerResult.ImageAlign = ContentAlignment.TopLeft;
+            playerResult.Location = new Point(483, 291);
             playerResult.Name = "playerResult";
             playerResult.Size = new Size(0, 28);
             playerResult.TabIndex = 17;
-            playerResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dealerResult
             // 
             dealerResult.AutoSize = true;
             dealerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            dealerResult.Location = new Point(496, 207);
+            dealerResult.ImageAlign = ContentAlignment.TopLeft;
+            dealerResult.Location = new Point(483, 208);
             dealerResult.Name = "dealerResult";
             dealerResult.Size = new Size(0, 28);
             dealerResult.TabIndex = 18;
-            dealerResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Five_Card_Draw
             // 
