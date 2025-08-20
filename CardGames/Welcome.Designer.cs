@@ -42,7 +42,7 @@
             // 
             Welcome_msg.AutoSize = true;
             Welcome_msg.Font = new Font("Malgun Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            Welcome_msg.Location = new Point(99, 40);
+            Welcome_msg.Location = new Point(74, 42);
             Welcome_msg.Name = "Welcome_msg";
             Welcome_msg.Size = new Size(599, 65);
             Welcome_msg.TabIndex = 0;
