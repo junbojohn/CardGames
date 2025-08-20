@@ -59,7 +59,7 @@
             // PlayerCard1
             // 
             PlayerCard1.Image = (Image)resources.GetObject("PlayerCard1.Image");
-            PlayerCard1.Location = new Point(250, 341);
+            PlayerCard1.Location = new Point(61, 336);
             PlayerCard1.Name = "PlayerCard1";
             PlayerCard1.Size = new Size(117, 160);
             PlayerCard1.TabIndex = 4;
@@ -69,7 +69,7 @@
             // PlayerCard2
             // 
             PlayerCard2.Image = (Image)resources.GetObject("PlayerCard2.Image");
-            PlayerCard2.Location = new Point(373, 341);
+            PlayerCard2.Location = new Point(184, 336);
             PlayerCard2.Name = "PlayerCard2";
             PlayerCard2.Size = new Size(117, 160);
             PlayerCard2.TabIndex = 5;
@@ -79,7 +79,7 @@
             // PlayerCard3
             // 
             PlayerCard3.Image = (Image)resources.GetObject("PlayerCard3.Image");
-            PlayerCard3.Location = new Point(496, 341);
+            PlayerCard3.Location = new Point(307, 336);
             PlayerCard3.Name = "PlayerCard3";
             PlayerCard3.Size = new Size(117, 160);
             PlayerCard3.TabIndex = 6;
@@ -89,7 +89,7 @@
             // PlayerCard4
             // 
             PlayerCard4.Image = (Image)resources.GetObject("PlayerCard4.Image");
-            PlayerCard4.Location = new Point(619, 341);
+            PlayerCard4.Location = new Point(430, 336);
             PlayerCard4.Name = "PlayerCard4";
             PlayerCard4.Size = new Size(117, 160);
             PlayerCard4.TabIndex = 7;
@@ -99,7 +99,7 @@
             // PlayerCard5
             // 
             PlayerCard5.Image = (Image)resources.GetObject("PlayerCard5.Image");
-            PlayerCard5.Location = new Point(742, 341);
+            PlayerCard5.Location = new Point(553, 336);
             PlayerCard5.Name = "PlayerCard5";
             PlayerCard5.Size = new Size(117, 160);
             PlayerCard5.TabIndex = 8;
@@ -109,7 +109,7 @@
             // DealerCard5
             // 
             DealerCard5.Image = (Image)resources.GetObject("DealerCard5.Image");
-            DealerCard5.Location = new Point(742, 21);
+            DealerCard5.Location = new Point(553, 16);
             DealerCard5.Name = "DealerCard5";
             DealerCard5.Size = new Size(117, 160);
             DealerCard5.TabIndex = 13;
@@ -118,7 +118,7 @@
             // DealerCard4
             // 
             DealerCard4.Image = (Image)resources.GetObject("DealerCard4.Image");
-            DealerCard4.Location = new Point(619, 21);
+            DealerCard4.Location = new Point(430, 16);
             DealerCard4.Name = "DealerCard4";
             DealerCard4.Size = new Size(117, 160);
             DealerCard4.TabIndex = 12;
@@ -127,7 +127,7 @@
             // DealerCard3
             // 
             DealerCard3.Image = (Image)resources.GetObject("DealerCard3.Image");
-            DealerCard3.Location = new Point(496, 21);
+            DealerCard3.Location = new Point(307, 16);
             DealerCard3.Name = "DealerCard3";
             DealerCard3.Size = new Size(117, 160);
             DealerCard3.TabIndex = 11;
@@ -136,7 +136,7 @@
             // DealerCard2
             // 
             DealerCard2.Image = (Image)resources.GetObject("DealerCard2.Image");
-            DealerCard2.Location = new Point(373, 21);
+            DealerCard2.Location = new Point(184, 16);
             DealerCard2.Name = "DealerCard2";
             DealerCard2.Size = new Size(117, 160);
             DealerCard2.TabIndex = 10;
@@ -145,7 +145,7 @@
             // DealerCard1
             // 
             DealerCard1.Image = (Image)resources.GetObject("DealerCard1.Image");
-            DealerCard1.Location = new Point(250, 21);
+            DealerCard1.Location = new Point(61, 16);
             DealerCard1.Name = "DealerCard1";
             DealerCard1.Size = new Size(117, 160);
             DealerCard1.TabIndex = 9;
@@ -154,7 +154,7 @@
             // Main_btn
             // 
             Main_btn.Font = new Font("Malgun Gothic", 12F);
-            Main_btn.Location = new Point(496, 526);
+            Main_btn.Location = new Point(307, 521);
             Main_btn.Name = "Main_btn";
             Main_btn.Size = new Size(117, 53);
             Main_btn.TabIndex = 14;
@@ -178,7 +178,7 @@
             game_msg.AutoSize = true;
             game_msg.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
             game_msg.ImageAlign = ContentAlignment.TopLeft;
-            game_msg.Location = new Point(483, 246);
+            game_msg.Location = new Point(294, 241);
             game_msg.Name = "game_msg";
             game_msg.Size = new Size(150, 28);
             game_msg.TabIndex = 16;
@@ -189,7 +189,7 @@
             playerResult.AutoSize = true;
             playerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
             playerResult.ImageAlign = ContentAlignment.TopLeft;
-            playerResult.Location = new Point(483, 291);
+            playerResult.Location = new Point(294, 286);
             playerResult.Name = "playerResult";
             playerResult.Size = new Size(0, 28);
             playerResult.TabIndex = 17;
@@ -199,7 +199,7 @@
             dealerResult.AutoSize = true;
             dealerResult.Font = new Font("Malgun Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 129);
             dealerResult.ImageAlign = ContentAlignment.TopLeft;
-            dealerResult.Location = new Point(483, 208);
+            dealerResult.Location = new Point(294, 203);
             dealerResult.Name = "dealerResult";
             dealerResult.Size = new Size(0, 28);
             dealerResult.TabIndex = 18;
@@ -208,7 +208,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1160, 608);
+            ClientSize = new Size(731, 608);
             Controls.Add(dealerResult);
             Controls.Add(playerResult);
             Controls.Add(game_msg);

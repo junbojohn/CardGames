@@ -309,7 +309,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1410, 699);
+            ClientSize = new Size(1410, 646);
             Controls.Add(Result_msg);
             Controls.Add(Dealer_Hand);
             Controls.Add(DealerCard11);
