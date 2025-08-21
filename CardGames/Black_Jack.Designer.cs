@@ -82,7 +82,7 @@
             // Play_and_Hit
             // 
             Play_and_Hit.Font = new Font("Malgun Gothic", 12F);
-            Play_and_Hit.Location = new Point(536, 576);
+            Play_and_Hit.Location = new Point(532, 489);
             Play_and_Hit.Name = "Play_and_Hit";
             Play_and_Hit.Size = new Size(117, 49);
             Play_and_Hit.TabIndex = 0;
@@ -93,7 +93,7 @@
             // Exit_and_Stop
             // 
             Exit_and_Stop.Font = new Font("Malgun Gothic", 12F);
-            Exit_and_Stop.Location = new Point(754, 576);
+            Exit_and_Stop.Location = new Point(750, 489);
             Exit_and_Stop.Name = "Exit_and_Stop";
             Exit_and_Stop.Size = new Size(117, 49);
             Exit_and_Stop.TabIndex = 1;
@@ -105,7 +105,7 @@
             // 
             Player_Hand.AutoSize = true;
             Player_Hand.Font = new Font("Malgun Gothic", 16F);
-            Player_Hand.Location = new Point(649, 282);
+            Player_Hand.Location = new Point(627, 218);
             Player_Hand.Name = "Player_Hand";
             Player_Hand.Size = new Size(111, 30);
             Player_Hand.TabIndex = 2;
@@ -113,7 +113,7 @@
             // 
             // PlayerCard1
             // 
-            PlayerCard1.Location = new Point(34, 336);
+            PlayerCard1.Location = new Point(12, 312);
             PlayerCard1.Name = "PlayerCard1";
             PlayerCard1.Size = new Size(117, 160);
             PlayerCard1.TabIndex = 3;
@@ -121,7 +121,7 @@
             // 
             // PlayerCard2
             // 
-            PlayerCard2.Location = new Point(157, 336);
+            PlayerCard2.Location = new Point(135, 312);
             PlayerCard2.Name = "PlayerCard2";
             PlayerCard2.Size = new Size(117, 160);
             PlayerCard2.TabIndex = 4;
@@ -129,7 +129,7 @@
             // 
             // PlayerCard3
             // 
-            PlayerCard3.Location = new Point(280, 336);
+            PlayerCard3.Location = new Point(258, 312);
             PlayerCard3.Name = "PlayerCard3";
             PlayerCard3.Size = new Size(117, 160);
             PlayerCard3.TabIndex = 5;
@@ -137,7 +137,7 @@
             // 
             // PlayerCard4
             // 
-            PlayerCard4.Location = new Point(403, 336);
+            PlayerCard4.Location = new Point(381, 312);
             PlayerCard4.Name = "PlayerCard4";
             PlayerCard4.Size = new Size(117, 160);
             PlayerCard4.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             // PlayerCard8
             // 
-            PlayerCard8.Location = new Point(895, 336);
+            PlayerCard8.Location = new Point(873, 312);
             PlayerCard8.Name = "PlayerCard8";
             PlayerCard8.Size = new Size(117, 160);
             PlayerCard8.TabIndex = 10;
@@ -153,7 +153,7 @@
             // 
             // PlayerCard7
             // 
-            PlayerCard7.Location = new Point(772, 336);
+            PlayerCard7.Location = new Point(750, 312);
             PlayerCard7.Name = "PlayerCard7";
             PlayerCard7.Size = new Size(117, 160);
             PlayerCard7.TabIndex = 9;
@@ -161,7 +161,7 @@
             // 
             // PlayerCard6
             // 
-            PlayerCard6.Location = new Point(649, 336);
+            PlayerCard6.Location = new Point(627, 312);
             PlayerCard6.Name = "PlayerCard6";
             PlayerCard6.Size = new Size(117, 160);
             PlayerCard6.TabIndex = 8;
@@ -169,7 +169,7 @@
             // 
             // PlayerCard5
             // 
-            PlayerCard5.Location = new Point(526, 336);
+            PlayerCard5.Location = new Point(504, 312);
             PlayerCard5.Name = "PlayerCard5";
             PlayerCard5.Size = new Size(117, 160);
             PlayerCard5.TabIndex = 7;
@@ -177,7 +177,7 @@
             // 
             // PlayerCard9
             // 
-            PlayerCard9.Location = new Point(1018, 336);
+            PlayerCard9.Location = new Point(996, 312);
             PlayerCard9.Name = "PlayerCard9";
             PlayerCard9.Size = new Size(117, 160);
             PlayerCard9.TabIndex = 11;
@@ -185,7 +185,7 @@
             // 
             // PlayerCard11
             // 
-            PlayerCard11.Location = new Point(1266, 336);
+            PlayerCard11.Location = new Point(1244, 312);
             PlayerCard11.Name = "PlayerCard11";
             PlayerCard11.Size = new Size(117, 160);
             PlayerCard11.TabIndex = 13;
@@ -193,7 +193,7 @@
             // 
             // PlayerCard10
             // 
-            PlayerCard10.Location = new Point(1143, 336);
+            PlayerCard10.Location = new Point(1121, 312);
             PlayerCard10.Name = "PlayerCard10";
             PlayerCard10.Size = new Size(117, 160);
             PlayerCard10.TabIndex = 12;
@@ -201,7 +201,7 @@
             // 
             // DealerCard11
             // 
-            DealerCard11.Location = new Point(1266, 35);
+            DealerCard11.Location = new Point(1244, 11);
             DealerCard11.Name = "DealerCard11";
             DealerCard11.Size = new Size(117, 160);
             DealerCard11.TabIndex = 24;
@@ -209,7 +209,7 @@
             // 
             // DealerCard10
             // 
-            DealerCard10.Location = new Point(1143, 35);
+            DealerCard10.Location = new Point(1121, 11);
             DealerCard10.Name = "DealerCard10";
             DealerCard10.Size = new Size(117, 160);
             DealerCard10.TabIndex = 23;
@@ -217,7 +217,7 @@
             // 
             // DealerCard9
             // 
-            DealerCard9.Location = new Point(1018, 35);
+            DealerCard9.Location = new Point(996, 11);
             DealerCard9.Name = "DealerCard9";
             DealerCard9.Size = new Size(117, 160);
             DealerCard9.TabIndex = 22;
@@ -225,7 +225,7 @@
             // 
             // DealerCard8
             // 
-            DealerCard8.Location = new Point(895, 35);
+            DealerCard8.Location = new Point(873, 11);
             DealerCard8.Name = "DealerCard8";
             DealerCard8.Size = new Size(117, 160);
             DealerCard8.TabIndex = 21;
@@ -233,7 +233,7 @@
             // 
             // DealerCard7
             // 
-            DealerCard7.Location = new Point(772, 35);
+            DealerCard7.Location = new Point(750, 11);
             DealerCard7.Name = "DealerCard7";
             DealerCard7.Size = new Size(117, 160);
             DealerCard7.TabIndex = 20;
@@ -241,7 +241,7 @@
             // 
             // DealerCard6
             // 
-            DealerCard6.Location = new Point(649, 35);
+            DealerCard6.Location = new Point(627, 11);
             DealerCard6.Name = "DealerCard6";
             DealerCard6.Size = new Size(117, 160);
             DealerCard6.TabIndex = 19;
@@ -249,7 +249,7 @@
             // 
             // DealerCard5
             // 
-            DealerCard5.Location = new Point(526, 35);
+            DealerCard5.Location = new Point(504, 11);
             DealerCard5.Name = "DealerCard5";
             DealerCard5.Size = new Size(117, 160);
             DealerCard5.TabIndex = 18;
@@ -257,7 +257,7 @@
             // 
             // DealerCard4
             // 
-            DealerCard4.Location = new Point(403, 35);
+            DealerCard4.Location = new Point(381, 11);
             DealerCard4.Name = "DealerCard4";
             DealerCard4.Size = new Size(117, 160);
             DealerCard4.TabIndex = 17;
@@ -265,7 +265,7 @@
             // 
             // DealerCard3
             // 
-            DealerCard3.Location = new Point(280, 35);
+            DealerCard3.Location = new Point(258, 11);
             DealerCard3.Name = "DealerCard3";
             DealerCard3.Size = new Size(117, 160);
             DealerCard3.TabIndex = 16;
@@ -273,7 +273,7 @@
             // 
             // DealerCard2
             // 
-            DealerCard2.Location = new Point(157, 35);
+            DealerCard2.Location = new Point(135, 11);
             DealerCard2.Name = "DealerCard2";
             DealerCard2.Size = new Size(117, 160);
             DealerCard2.TabIndex = 15;
@@ -281,7 +281,7 @@
             // 
             // DealerCard1
             // 
-            DealerCard1.Location = new Point(34, 35);
+            DealerCard1.Location = new Point(12, 11);
             DealerCard1.Name = "DealerCard1";
             DealerCard1.Size = new Size(117, 160);
             DealerCard1.TabIndex = 14;
@@ -291,7 +291,7 @@
             // 
             Dealer_Hand.AutoSize = true;
             Dealer_Hand.Font = new Font("Malgun Gothic", 15F);
-            Dealer_Hand.Location = new Point(653, 233);
+            Dealer_Hand.Location = new Point(631, 181);
             Dealer_Hand.Name = "Dealer_Hand";
             Dealer_Hand.Size = new Size(0, 28);
             Dealer_Hand.TabIndex = 25;
@@ -300,7 +300,7 @@
             // 
             Result_msg.AutoSize = true;
             Result_msg.Font = new Font("Malgun Gothic", 16F);
-            Result_msg.Location = new Point(649, 523);
+            Result_msg.Location = new Point(631, 263);
             Result_msg.Name = "Result_msg";
             Result_msg.Size = new Size(0, 30);
             Result_msg.TabIndex = 26;
@@ -309,7 +309,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1410, 646);
+            ClientSize = new Size(1374, 546);
             Controls.Add(Result_msg);
             Controls.Add(Dealer_Hand);
             Controls.Add(DealerCard11);
